@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document</title>
+    <link rel="stylesheet" href="font_Akrobat/akrobat.css">
+
+    <style>
+        /* BODY {
+
+        } */
+        .container {
+            width: 355px;
+            height: 294px;
+            background: gray;
+            border-radius: 5px;
+            /* background: url(bg.png); */
+
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .speed_bg {
+            position: absolute;
+            top: 21px;
+        }
+        /* .speed__center {
+            
+        } */
+        .speed__center_top {
+            position: absolute;
+            top: 107px;
+            font-family: 'Akrobat';
+            font-style: normal;
+            color: white;
+            font-weight: 700;
+            font-size: 64px;
+            line-height: 54px;
+            letter-spacing: -2px;
+            /* background: rgba(0, 0, 255, 1); */
+        }
+        .speed__center__bottom {
+            position: absolute;
+            top: 162px;
+            /* background: rgba(255, 0, 0, 0.5); */
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        .speed__center__bottom_text {
+            font-family: 'Akrobat';
+            font-style: normal;
+            color: white;
+            font-weight: 700;
+            font-size: 18px;
+            line-height: 18px;
+        }
+        .speed__bottom {
+            position: absolute;
+            bottom: 55px;
+            display: flex;
+        }
+        .speed__bottom_bg {
+            width: 30px;
+            height: 30px;
+
+            background: rgba(255, 255, 255, 0.12);
+            border-radius: 4px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .speed-arrow_container {
+            position: absolute;
+            transform-origin: 50% 50%;
+            /* transform: translateX(40%) translateY(50%); */
+        }
+        .speed-arrow {
+            transform: translateX(-150%) translateY(50%);
+        }
+        .fuel__bar_bg {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotate(138deg);
+            fill: transparent;
+            width: 300px;
+            height: 300px;
+            stroke-dasharray: 55 9999; 
+        }
+        .fuel__bar {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotate(138deg);
+            fill: transparent;
+            width: 300px;
+            height: 300px;
+            stroke-dasharray: 35 9999; 
+        }
+        .fuel_info {
+            position: absolute;
+            left: 0;
+            bottom: 45px;
+            font-family: Akrobat;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+
+            display: flex;
+        }
+        .health_info {
+            position: absolute;
+            right: 0;
+            bottom: 45px;
+            font-family: Akrobat;
+            font-style: normal;
+            font-weight: 700;
+            font-size: 18px;
+            color: white;
+
+            display: flex;
+        }
+        .health__bar_bg {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotateY(180deg) rotate(138deg);
+            fill: transparent;
+            width: 300px;
+            height: 300px;
+            stroke-dasharray: 55 9999; 
+        }
+        .health__bar {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotateY(180deg) rotate(138deg);
+            fill: transparent;
+            width: 300px;
+            height: 300px;
+            stroke-dasharray: 35 9999; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="speed_bg" src="bg.svg" alt="ALL">
+        <!-- <img  src="all.svg" alt="ALL"> -->
+
+        <!-- center speed info -->
+        <div class="speed__center_top">
+            019
+        </div>
+        <div class="speed__center__bottom">
+            <svg fill="white" width="7" height="10" viewBox="0 0 7 10">
+                <path d="M7 0.95471V9.04512C7 9.41275 6.78632 9.74791 6.45067 9.90674C6.31809 9.96849 6.17585 10 6.03457 10C5.81832 10 5.60335 9.92743 5.4286 9.78833L0.359139 5.74313C0.131942 5.56202 0 5.28861 0 4.99991C0 4.71122 0.131942 4.43781 0.359139 4.2567L5.42893 0.211493C5.71823 -0.019589 6.11599 -0.0647868 6.45164 0.0930872C6.78632 0.251916 7 0.586762 7 0.95471Z"/>
+            </svg>
+            <span style="margin: 0 8px 0 8px;" class="speed__center__bottom_text">KM/H</span>
+            <svg fill="#FFFF00" width="7" height="10" viewBox="0 0 7 10">
+                <path d="M0 0.95471V9.04512C0 9.41275 0.213681 9.74791 0.549328 9.90674C0.681914 9.96849 0.824154 10 0.965429 10C1.18168 10 1.39665 9.92743 1.5714 9.78833L6.64086 5.74313C6.86806 5.56202 7 5.28861 7 4.99991C7 4.71122 6.86806 4.43781 6.64086 4.2567L1.57107 0.211493C1.28177 -0.019589 0.88401 -0.0647868 0.548363 0.0930872C0.213681 0.251916 0 0.586762 0 0.95471Z"/>
+            </svg>
+                
+        </div>
+        
+        <!-- speed arrow -->
+        <div class="speed-arrow_container">
+            <img class="speed-arrow" src="arrow-speed.svg" alt="arrow-speed">
+        </div>
+
+        <!-- fuel -->
+        <div class="fuel__bar_bg">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" stroke="rgba(255, 255, 255, 0.31)" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="fuel__bar">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" stroke="#FFFF00" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="fuel_info">
+            <img src="fuel.svg" alt="fuel">
+            &nbsp;<span>45</span>L
+        </div>
+
+        <!-- health -->
+        <div class="health__bar_bg">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" stroke="rgba(255, 255, 255, 0.31)" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="health__bar">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" stroke="#FFFF00" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="health_info">
+            <img src="health.svg" alt="health">
+            &nbsp;<span>85</span>%
+        </div>
+
+        <!-- bottom buttons -->
+        <div class="speed__bottom">
+            <div class="speed__bottom_bg">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="#FFFF00">
+                    <path d="M9.36599 0.513135C9.31161 0.215625 9.05286 0 8.75099 0C3.926 0 0.000976562 3.36437 0.000976562 7.5C0.000976562 11.635 3.92597 15 8.75099 15C9.05286 15 9.31161 14.7838 9.36599 14.4862L9.43035 14.1331C10.1941 9.64002 10.1935 5.17439 9.42909 0.859395L9.36599 0.513135Z"/>
+                    <path d="M10.9281 4.28568L14.0531 6.16068C14.1537 6.22129 14.2649 6.25006 14.3743 6.25006C14.5868 6.25006 14.7937 6.14193 14.9106 5.94631C15.0881 5.65068 14.9924 5.2663 14.6962 5.08882L11.5712 3.21382C11.2749 3.0357 10.8906 3.13258 10.7137 3.42819C10.5362 3.72441 10.6318 4.10817 10.9281 4.28568Z"/>
+                    <path d="M14.6962 8.83895L11.5712 6.96395C11.2743 6.78582 10.8906 6.88271 10.7137 7.17831C10.5362 7.47395 10.6318 7.85832 10.9281 8.0358L14.0531 9.91081C14.1537 9.97142 14.2649 9.99955 14.3737 9.99955C14.5862 9.99955 14.7931 9.89206 14.9106 9.69641C15.088 9.40022 14.9924 9.01646 14.6962 8.83895Z"/>
+                    <path d="M14.6962 12.5889L11.5712 10.7139C11.2743 10.5358 10.8906 10.6327 10.7137 10.9283C10.5362 11.2239 10.6318 11.6083 10.9281 11.7858L14.0531 13.6608C14.1537 13.7214 14.2649 13.7495 14.3737 13.7495C14.5862 13.7495 14.7931 13.6421 14.9106 13.4464C15.088 13.1502 14.9924 12.7665 14.6962 12.5889Z"/>
+                </svg>
+            </div>
+            <div class="speed__bottom_bg" style="margin: 0 7px 0 7px;">
+                <svg width="15" height="13" viewBox="0 0 15 13" fill="white">
+                    <path d="M14.8013 6.2314L13.118 4.95351C12.9658 4.83796 12.762 4.81835 12.5907 4.90373C12.4199 4.98835 12.3117 5.16282 12.3117 5.35379V6.13571H11.8138V5.34546C11.8138 5.06789 11.5888 4.84283 11.3114 4.84283H10.311V2.97663C10.311 2.699 10.0859 2.474 9.80847 2.474H8.24548V1.9406H8.66623C8.94375 1.9406 9.16881 1.71554 9.16881 1.43802C9.16881 1.1605 8.94375 0.935547 8.66623 0.935547H5.41968C5.14221 0.935547 4.91716 1.1605 4.91716 1.43802C4.91716 1.71554 5.14221 1.9406 5.41968 1.9406H5.84074V2.474H3.89799C3.62047 2.474 3.39542 2.699 3.39542 2.97663V3.95755H2.41399C2.13641 3.95755 1.91141 4.18255 1.91141 4.46007V5.60967H1.005V4.18382C1.005 3.9063 0.779994 3.6813 0.502473 3.6813C0.224952 3.68125 0 3.9063 0 4.18377V9.44011C0 9.71763 0.224952 9.94259 0.502524 9.94259C0.780045 9.94259 1.00505 9.71758 1.00505 9.44011V8.01421H1.91151V9.19271C1.91151 9.47028 2.13652 9.69523 2.41409 9.69523H3.67781L5.45077 11.8787C5.5462 11.9962 5.68954 12.0644 5.84084 12.0644H11.3115C11.589 12.0644 11.8139 11.8393 11.8139 11.5618V10.8978H12.3118V11.5618C12.3118 11.7581 12.4261 11.9362 12.6043 12.0184C12.6715 12.0492 12.7432 12.0643 12.8143 12.0643C12.9321 12.0643 13.0484 12.0229 13.1415 11.9433L14.8247 10.5006C14.9361 10.405 15.0001 10.2657 15.0001 10.119V6.63153C15 6.47459 14.9264 6.32638 14.8013 6.2314Z"/>
+                </svg>
+            </div>
+            <div class="speed__bottom_bg">
+                <svg width="15" height="15" viewBox="0 0 15 15" fill="white">
+                    <path d="M4.3369 7.15868C4.09253 6.91431 3.6969 6.91431 3.45315 7.15868L1.66314 8.94805C1.54627 9.06492 1.48 9.22429 1.48 9.38994C1.48 9.55558 1.54624 9.71431 1.66314 9.83182L1.74189 9.91057L0.188765 11.4281C0.0687643 11.5449 0.00126406 11.7043 4.28708e-06 11.8718C-0.00061095 12.0387 0.0650143 12.1987 0.18314 12.3168L2.68314 14.8168C2.80065 14.9343 2.95938 15 3.12503 15H3.12878C3.29565 14.9993 3.45564 14.9318 3.57254 14.8118L5.09003 13.2581L5.16878 13.3368C5.28565 13.4543 5.44503 13.52 5.61067 13.52C5.77632 13.52 5.93505 13.4543 6.05256 13.3368L7.84193 11.5475C8.08568 11.3031 8.08568 10.9081 7.84193 10.6637L4.3369 7.15868ZM3.12002 13.4862L1.51439 11.8806L2.62566 10.7943L4.20629 12.3744L3.12002 13.4862Z"/>
+                    <path d="M1.37938 4.75576C1.40501 4.78951 1.43437 4.82012 1.46624 4.84763C1.57499 4.94264 1.71749 5.00012 1.87373 5.00012H1.87499H3.75C4.095 5.00012 4.37499 4.72013 4.37499 4.37513C4.37499 4.03013 4.095 3.75014 3.75 3.75014H3.38376L4.81688 2.31702C5.06125 2.07327 5.06125 1.67764 4.81688 1.43327C4.57251 1.18891 4.1775 1.18891 3.93314 1.43327L2.50001 2.86637V2.50012C2.50001 2.15512 2.22002 1.87513 1.87502 1.87513C1.53002 1.87513 1.25 2.15512 1.25 2.50012V4.37077C1.25 4.38703 1.25 4.40326 1.25126 4.4189C1.26063 4.54576 1.30625 4.66136 1.37938 4.75576Z"/>
+                    <path d="M13.6134 10.2352C13.5884 10.2039 13.5609 10.1752 13.5309 10.1502C13.4222 10.057 13.2815 10.0008 13.1278 10.0002H13.1265H13.1253H11.2503C10.9053 10.0002 10.6253 10.2802 10.6253 10.6252C10.6253 10.9702 10.9053 11.2502 11.2503 11.2502H11.8752L10.7502 12.7502C10.5427 13.0264 10.599 13.4183 10.8753 13.6252C10.9878 13.7096 11.119 13.7502 11.2496 13.7502C11.4396 13.7502 11.6271 13.664 11.7503 13.5002L12.5003 12.5002C12.5003 12.8452 12.7803 13.1252 13.1253 13.1252C13.4703 13.1252 13.7503 12.8452 13.7503 12.5002V10.6271C13.7503 10.6196 13.7503 10.6127 13.7496 10.6052C13.7453 10.4652 13.6953 10.337 13.6134 10.2352Z"/>
+                    <path d="M14.8167 2.6832L12.3167 0.183197C12.1986 0.0650711 12.0255 6.10352e-05 11.8717 6.10352e-05C11.7049 0.00132081 11.5455 0.0688211 11.4286 0.187562L10.013 1.63381C9.37798 1.10192 8.43175 1.12817 7.83611 1.72319L6.57048 2.98944C6.55736 3.00256 6.55235 3.02005 6.54048 3.03444C6.50987 3.07068 6.48485 3.10882 6.46299 3.15069C6.44861 3.17943 6.43487 3.20694 6.42549 3.23694C6.41111 3.28006 6.40425 3.32319 6.39986 3.36819C6.39672 3.39945 6.39174 3.43007 6.39362 3.46133C6.39549 3.50633 6.40674 3.54884 6.41925 3.59319C6.42737 3.62445 6.43238 3.65568 6.44612 3.68568C6.44987 3.6938 6.44925 3.70256 6.45362 3.71067L6.80363 4.41192C6.89301 4.59005 6.85862 4.80442 6.71738 4.94569L5.95363 5.70943C5.51676 6.14631 5.51676 6.85755 5.95363 7.29443L7.70551 9.04694C7.91738 9.25882 8.19925 9.37507 8.49863 9.37507C8.79802 9.37507 9.07927 9.25882 9.2905 9.04694L10.0549 8.2832C10.1955 8.14196 10.4105 8.10756 10.5887 8.19633L11.2893 8.54696C11.2974 8.55071 11.3062 8.55071 11.3149 8.55446C11.3449 8.56759 11.3762 8.5726 11.4074 8.58133C11.4518 8.59319 11.4943 8.60509 11.5393 8.60696C11.5493 8.60758 11.5586 8.61259 11.5693 8.61259C11.5905 8.61259 11.6105 8.6026 11.6318 8.60072C11.6768 8.59571 11.7205 8.58947 11.7636 8.57509C11.7936 8.5651 11.8205 8.55197 11.8493 8.53697C11.8911 8.51573 11.9293 8.4901 11.9661 8.45948C11.9805 8.44761 11.998 8.44322 12.0111 8.42948L13.2768 7.16385C13.8724 6.56821 13.898 5.62259 13.3662 4.98758L14.8124 3.57195C14.9318 3.45508 14.9993 3.29571 14.9999 3.12883C15.0005 2.96134 14.9349 2.80132 14.8167 2.6832ZM12.393 6.28011L11.5955 7.0776C11.5761 7.05384 11.5574 7.02885 11.5393 7.00447C11.4674 6.90946 11.3974 6.81009 11.3299 6.70696C11.3024 6.66445 11.2742 6.6232 11.2474 6.57946C11.1561 6.43195 11.0674 6.27885 10.983 6.1132C10.7792 5.71631 10.468 5.30258 10.083 4.91695C9.698 4.53195 9.28423 4.22132 8.88673 4.01756C8.72173 3.93257 8.5686 3.84444 8.42173 3.7538C8.37734 3.72629 8.33548 3.69816 8.29297 3.67004C8.18858 3.60192 8.08921 3.5319 7.99358 3.46004C7.96982 3.4419 7.94609 3.42315 7.92233 3.40505L8.72047 2.60755C8.86297 2.46505 9.09547 2.46444 9.23859 2.60755L12.393 5.76193C12.5355 5.90446 12.5361 6.13696 12.393 6.28011Z"/>
+                </svg>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SPEED RANGE -->
+    <input type="range" min="0" max="200" value="0" oninput="SetSpeed(value)"> 
+    <br>
+    <!-- FUEL RANGE -->
+    <input type="range" min="0" max="50" value="45" oninput="SetFuel(value)"> 
+    <br>
+    <!-- HEALTH RANGE -->
+    <input type="range" min="0" max="100" value="50" oninput="SetHealth(value)"> 
+    <br>
+    <!-- INFO CHECKBOXES -->
+    <input type="checkbox" oninput="SwitchLights(checked)" checked>
+    <input type="checkbox" oninput="SwitchMotor(checked)">
+    <input type="checkbox" oninput="SwitchBelt(checked)">
+
+    <script>
+        function SetSpeed(speed)
+        {   
+            document.querySelector('.speed-arrow_container').style.transform = 'rotate(' + Math.round(speed/274*360-26) + 'deg)';
+            let resSpeed = '';
+            if (speed < 10) resSpeed += '<span style="color: rgba(255, 255, 255, 0.43);">00</span>';
+            else if (speed > 9 && speed < 100) resSpeed += '<span style="color: rgba(255, 255, 255, 0.43);">0</span>';
+            resSpeed += speed;
+            document.querySelector('.speed__center_top').innerHTML = resSpeed;
+        }
+        function SetFuel(fuel)
+        {
+            document.querySelector('.fuel_info span').innerText = fuel;
+            document.querySelector('.fuel__bar').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 50 * fuel) + ' 9999';
+        } 
+        function SetHealth(health)
+        {
+            document.querySelector('.health_info span').innerText = health;
+            document.querySelector('.health__bar').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * health) + ' 9999';
+        } 
+        function SwitchLights(check)
+        {
+            console.log(check);
+            if (check) document.querySelectorAll('.speed__bottom_bg svg')[0].style.fill = '#FFFF00';
+            else document.querySelectorAll('.speed__bottom_bg svg')[0].style.fill = 'white';
+        } 
+        function SwitchMotor(check)
+        {
+            if (check) document.querySelectorAll('.speed__bottom_bg svg')[1].style.fill = '#FFFF00';
+            else document.querySelectorAll('.speed__bottom_bg svg')[1].style.fill = 'white';
+        } 
+        function SwitchBelt(check)
+        {
+            if (check) document.querySelectorAll('.speed__bottom_bg svg')[2].style.fill = '#FFFF00';
+            else document.querySelectorAll('.speed__bottom_bg svg')[2].style.fill = 'white';
+        } 
+        window.onload = function () {
+            SetSpeed(19);
+            SetFuel(45);
+            SetHealth(85);
+            SwitchLights(true);
+            SwitchMotor(false);
+            SwitchBelt(false);
+        }
+    </script>
+</body>
+</html>
