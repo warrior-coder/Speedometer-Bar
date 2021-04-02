@@ -5,17 +5,21 @@
     <link rel="stylesheet" href="font_Akrobat/akrobat.css">
 
     <style>
-        /* BODY {
-
-        } */
+        BODY {
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+        }
         .container {
             width: 355px;
             height: 294px;
             background: gray;
             border-radius: 5px;
             /* background: url(bg.png); */
-
+            transform: scale(1.75);
             position: relative;
+
+            margin: 150px 0 200px 0;
 
             display: flex;
             align-items: center;
@@ -125,26 +129,50 @@
         .health__bar_bg {
             position: absolute;
             transform-origin: 50% 50%;
-            transform: rotateY(180deg) rotate(138deg);
-            fill: transparent;
+            /* transform: rotateY(180deg) rotate(138deg); */
+            
             width: 300px;
             height: 300px;
-            stroke-dasharray: 55 9999; 
+            /* stroke-dasharray: 54 9999;  */
         }
-        .health__bar {
+        .health__bar_part1 {
             position: absolute;
             transform-origin: 50% 50%;
             transform: rotateY(180deg) rotate(138deg);
-            fill: transparent;
+            stroke-dasharray: 12 9999; 
             width: 300px;
             height: 300px;
-            stroke-dasharray: 35 9999; 
         }
+        .health__bar_part2 {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotateY(180deg) rotate(155deg);
+            stroke-dasharray: 12 9999; 
+            width: 300px;
+            height: 300px;
+        }
+        .health__bar_part3 {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotateY(180deg) rotate(172deg);
+            stroke-dasharray: 0 9999; 
+            width: 300px;
+            height: 300px;
+        }
+        .health__bar_part4 {
+            position: absolute;
+            transform-origin: 50% 50%;
+            transform: rotateY(180deg) rotate(189deg);
+            stroke-dasharray: 0 9999; 
+            width: 300px;
+            height: 300px;
+        }
+      
     </style>
 </head>
 <body>
     <div class="container">
-        <img class="speed_bg" src="bg.svg" alt="ALL">
+        <img class="speed_bg" src="bg.svg" alt="BG">
         <!-- <img  src="all.svg" alt="ALL"> -->
 
         <!-- center speed info -->
@@ -185,15 +213,45 @@
 
         <!-- health -->
         <div class="health__bar_bg">
-            <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="47" stroke="rgba(255, 255, 255, 0.31)" stroke-width="4"/>
+            <svg style="position:absolute; transform: rotateY(180deg) rotate(138deg);" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="rgba(255, 255, 255, 0.31)" stroke-width="4" stroke-dasharray="54 9999"/>
+            </svg>
+            <svg style="position:absolute; transform: rotateY(180deg) rotate(138deg);" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="rgba(255, 255, 255, 0.23)" stroke-width="4" stroke-dasharray="12 9999"/>
+            </svg>
+            <svg style="position:absolute; transform: rotateY(180deg) rotate(155deg);" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="rgba(255, 255, 255, 0.23)" stroke-width="4" stroke-dasharray="12 9999"/>
+            </svg>
+            <svg style="position:absolute; transform: rotateY(180deg) rotate(172deg);" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="rgba(255, 255, 255, 0.23)" stroke-width="4" stroke-dasharray="12 9999"/>
+            </svg>
+            <svg style="position:absolute; transform: rotateY(180deg) rotate(189deg);" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="rgba(255, 255, 255, 0.23)" stroke-width="4" stroke-dasharray="12 9999"/>
             </svg>
         </div>
-        <div class="health__bar">
+        
+        <div class="health__bar_part1">
             <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="47" stroke="#FFFF00" stroke-width="4"/>
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="#FFFF00" stroke-width="4"/>
             </svg>
         </div>
+        <div class="health__bar_part2">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="#FFFF00" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="health__bar_part3">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="#FFFF00" stroke-width="4"/>
+            </svg>
+        </div>
+        <div class="health__bar_part4">
+            <svg viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="47" fill="transparent" stroke="#FFFF00" stroke-width="4"/>
+            </svg>
+        </div>
+       
+            
         <div class="health_info">
             <img src="health.svg" alt="health">
             &nbsp;<span>85</span>%
@@ -226,19 +284,26 @@
         </div>
     </div>
 
-    <!-- SPEED RANGE -->
-    <input type="range" min="0" max="200" value="0" oninput="SetSpeed(value)"> 
-    <br>
-    <!-- FUEL RANGE -->
-    <input type="range" min="0" max="50" value="45" oninput="SetFuel(value)"> 
-    <br>
-    <!-- HEALTH RANGE -->
-    <input type="range" min="0" max="100" value="50" oninput="SetHealth(value)"> 
-    <br>
-    <!-- INFO CHECKBOXES -->
-    <input type="checkbox" oninput="SwitchLights(checked)" checked>
-    <input type="checkbox" oninput="SwitchMotor(checked)">
-    <input type="checkbox" oninput="SwitchBelt(checked)">
+    <!-- INPUTS -->
+    <div style="transform: scale(2); margin-bottom: 75px;">
+        <!-- SPEED RANGE -->
+        <input type="range" min="0" max="200" value="19" oninput="SetSpeed(value)"> 
+        <br>
+        <!-- FUEL RANGE -->
+        <input type="range" min="0" max="50" value="45" oninput="SetFuel(value)"> 
+        <br>
+        <!-- HEALTH RANGE -->
+        <input type="range" min="0" max="100" value="50" oninput="SetHealth(value)"> 
+        <br>
+        <!-- INFO CHECKBOXES -->
+        <div style="display: flex; justify-content: space-around;">
+            <input type="checkbox" oninput="SwitchLights(checked)" checked>
+            <input type="checkbox" oninput="SwitchMotor(checked)">
+            <input type="checkbox" oninput="SwitchBelt(checked)">
+        </div>
+       
+    </div>
+    
 
     <script>
         function SetSpeed(speed)
@@ -255,10 +320,59 @@
             document.querySelector('.fuel_info span').innerText = fuel;
             document.querySelector('.fuel__bar').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 50 * fuel) + ' 9999';
         } 
+        // function SetHealth_OLD(health2)
+        // {
+        //     // document.querySelector('.health_info span').innerText = health;
+        //     document.querySelector('.health__bar_part1').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * health2) + ' 9999';
+        //     // if (health <= 25)
+        //     // {
+        //     //     document.querySelector('.health__bar_part1').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * health) + ' 9999';
+        //     // }
+        //     // else if (health > 25 && health <= 50)
+        //     // {
+        //     //     document.querySelector('.health__bar_part2').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * (health-25)) + ' 9999';
+        //     // }
+            
+        // } 
         function SetHealth(health)
         {
             document.querySelector('.health_info span').innerText = health;
-            document.querySelector('.health__bar').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * health) + ' 9999';
+            // if (health > 50) health *= -1;
+            
+            // document.querySelector('.health__bar_part4').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 6 / 100 * (health-75) ) + ' 9999';
+            if (health <= 25)
+            {
+                document.querySelector('.health__bar_part1').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 6 / 100 * health) + ' 9999';
+                document.querySelector('.health__bar_part2').style.strokeDasharray = '0 9999';
+                document.querySelector('.health__bar_part3').style.strokeDasharray = '0 9999';
+                document.querySelector('.health__bar_part4').style.strokeDasharray = '0 9999';
+            }
+            else if (health > 25 && health <= 50)
+            {
+                document.querySelector('.health__bar_part1').style.strokeDasharray = '12 9999';
+                document.querySelector('.health__bar_part2').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 6 / 100 * (health-25)) + ' 9999';
+                document.querySelector('.health__bar_part3').style.strokeDasharray = '0 9999';
+                document.querySelector('.health__bar_part4').style.strokeDasharray = '0 9999';
+            }
+            else if (health > 50 && health <= 75)
+            {
+                document.querySelector('.health__bar_part1').style.strokeDasharray = '12 9999';
+                document.querySelector('.health__bar_part2').style.strokeDasharray = '12 9999';
+                document.querySelector('.health__bar_part3').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 6 / 100 * (health-50)) + ' 9999';
+                document.querySelector('.health__bar_part4').style.strokeDasharray = '0 9999';
+            }
+            else if (health > 75)
+            {
+                
+                document.querySelector('.health__bar_part2').style.strokeDasharray = '12 9999';
+                document.querySelector('.health__bar_part3').style.strokeDasharray = '12 9999';
+                document.querySelector('.health__bar_part4').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 6 / 100 * (health-75)) + ' 9999';
+            }
+            // else if (health > 25 && health <= 50)
+            // {
+            //     document.querySelector('.health__bar_part2').style.strokeDasharray = Math.round(47 * 2 * Math.PI / 5.4 / 100 * (health-25)) + ' 9999';
+            // }
+            
         } 
         function SwitchLights(check)
         {
@@ -279,7 +393,7 @@
         window.onload = function () {
             SetSpeed(19);
             SetFuel(45);
-            SetHealth(85);
+            SetHealth(50);
             SwitchLights(true);
             SwitchMotor(false);
             SwitchBelt(false);
